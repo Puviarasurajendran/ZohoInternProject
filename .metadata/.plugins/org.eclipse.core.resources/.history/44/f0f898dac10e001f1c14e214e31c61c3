@@ -1,0 +1,28 @@
+package reflectionpractice;
+
+import java.lang.reflect.Field;
+
+public class ReflectionExample {
+
+	public static void main(String[] args) {
+		try {
+		EmployeeDetails emd= new EmployeeDetails("Puvi", 22, "Developer");
+	     Field[] employefeilds=emd.getClass().getDeclaredFields();
+		 
+	     for (Field field : employefeilds) {
+			System.out.println(field.getName());
+			if(field.getName().equalsIgnoreCase("name")) {
+				field.setAccessible(true);
+				field.set(emd, "Puviarasu");
+			}
+			if(field.getName().equalsIgnoreCase("age")) {
+				field.setAccessible(true);
+				field.set(emd, 23);
+			}
+		 }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

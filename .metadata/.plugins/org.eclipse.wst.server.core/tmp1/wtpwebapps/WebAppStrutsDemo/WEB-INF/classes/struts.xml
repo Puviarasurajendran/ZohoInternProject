@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>  
+<package name="default" namespace="/student" extends="json-default">
+        <action name="getStudents" class="com.example.StudentAction" method="getStudentById">
+            <result type="json"/>
+             <param name="excludeProperties">student</param>
+        </action>
+        <action name="getAllStudents" class="com.example.StudentAction" method="getAllStudents">
+            <result type="json"/>
+            <param name="root">studentList</param>
+        </action>
+    </package>
+    
+</struts>    

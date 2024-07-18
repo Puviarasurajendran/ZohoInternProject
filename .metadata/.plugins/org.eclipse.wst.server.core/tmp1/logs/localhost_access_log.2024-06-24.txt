@@ -1,0 +1,7 @@
+127.0.0.1 - - [24/Jun/2024:10:35:02 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [24/Jun/2024:10:36:10 +0530] "GET /StrutsCustomersRestApi/v1/Customers HTTP/1.1" 200 1800
+0:0:0:0:0:0:0:1 - - [24/Jun/2024:10:40:52 +0530] "GET /StrutsCustomersRestApi/v2/Customers HTTP/1.1" 200 2038
+0:0:0:0:0:0:0:1 - - [24/Jun/2024:10:53:13 +0530] "PUT /StrutsCustomersRestApi/v2/Customers HTTP/1.1" 200 38
+0:0:0:0:0:0:0:1 - - [24/Jun/2024:10:53:21 +0530] "GET /StrutsCustomersRestApi/v2/Customers HTTP/1.1" 200 2038
+0:0:0:0:0:0:0:1 - - [24/Jun/2024:10:54:05 +0530] "PUT /StrutsCustomersRestApi/v2/Customers HTTP/1.1" 200 38
+0:0:0:0:0:0:0:1 - - [24/Jun/2024:10:54:10 +0530] "GET /StrutsCustomersRestApi/v2/Customers HTTP/1.1" 200 2042

@@ -1,0 +1,56 @@
+package walkietalkie;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class user2 extends Thread {
+
+	Socket socket;
+	
+	DataInputStream dataInput;
+	DataOutputStream dataOutput;
+	Scanner sc;
+	
+	public user2() {
+	  try {
+		  
+	  socket= new Socket("localhost",9876);
+		
+	  dataInput= new DataInputStream(socket.getInputStream());
+	  dataOutput= new DataOutputStream(socket.getOutputStream());
+	  
+	  this.start();
+	  
+	}
+	  catch(Exception e) {
+		e.printStackTrace();
+	}
+}
+	
+	public void run() {
+		while(true) {
+			try {
+				sc=new Scanner(System.in);
+				String input= sc.nextLine();
+				dataOutput.write(input.getBytes());
+				dataOutput.flush();
+		
+				String msg= dataInput.readLine();
+				System.out.println("user 2 : "+msg);
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+	}
+	
+	public static void main(String[] args) {
+		
+		user2 client= new user2();
+		
+	}
+	
+}

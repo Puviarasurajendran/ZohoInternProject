@@ -1,0 +1,19 @@
+INDEX VERSION 1.134
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3586487129.index
+/WebAppSuperMarket/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1332594422.index
+/WebAppLogin/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3585583302.index
+/SampleWebApp/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4027792623.index
+/WebAppSuperMarket/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2707095175.index
+/WebAppPropertiesJSP/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/658192138.index
+/SampleWebApplication1/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/781879221.index
+/WebAppStrutsDemo/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2400976686.index
+/WebAppPropertiesJSP/src/main/java
+/home/admin/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1220729672.index
+/StrutsCustomersFetchApi/src/main/java

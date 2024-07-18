@@ -1,0 +1,92 @@
+package proxy;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import javassist.util.proxy.MethodHandler;
+import javassist.util.proxy.Proxy;
+import javassist.util.proxy.ProxyFactory;
+
+
+
+
+public class ProxyFactoryUtil {
+
+	 private static final Map<String, String> versionClassMapping;
+
+	    static {
+	        versionClassMapping = new HashMap<>();
+	        versionClassMapping.put("v1", "restdao.CustomersDAO");
+	        versionClassMapping.put("v2", "restdao.CustomersDAOVersion2");
+	        // Add more versions as needed
+	    }
+
+
+	    public Object createProxy() {
+	        HttpServletRequest request = ServletActionContext.getRequest();
+	        String uri = request.getRequestURI();
+	        String version = uri.contains("/v2/") ? "v2" : "v1";
+
+	        String className = versionClassMapping.get(version);
+	        System.out.println("Inside ProxyFactoryUtil className :"+className);
+	        if (className == null) {
+	            throw new IllegalArgumentException("No class mapping found for version: " + version);
+	        }
+	        Object target;
+	        try {
+	            Class<?> clazz = Class.forName(className);
+	            target = clazz.getDeclaredConstructor().newInstance();
+	        } catch (Exception e) {
+	            throw new RuntimeException("Failed to instantiate class dynamically", e);
+	        }
+	        System.out.println("Inside ProxyFactoryUtil target :"+target.getClass().getName());
+	        ProxyFactory factory = new ProxyFactory();
+	        factory.setSuperclass(target.getClass()); // Use superclass as superclass
+	        Class<?> proxyClass = factory.createClass();
+	        Object proxy;
+	        try {
+	            proxy = proxyClass.getDeclaredConstructor().newInstance();
+	        } catch (Exception e) {
+	            throw new RuntimeException("Failed to instantiate proxy", e);
+	        }
+
+
+	        ((Proxy) proxy).setHandler(new MethodHandler() {
+	            @Override
+	            public Object invoke(Object self, Method method, Method proceed, Object[] args) throws Throwable {
+	                HttpServletRequest request = ServletActionContext.getRequest();
+	                String httpMethod = request.getMethod(); // Get HTTP method (GET, POST, PUT, DELETE, etc.)
+
+	                // Example of conditional method invocation based on HTTP method
+	                switch (httpMethod) {
+	                    case "GET":
+	                        if ("methodNameForGET".equals(method.getName())) {
+	                            return method.invoke(target, args);
+	                        }
+	                        break;
+	                    case "POST":
+	                        if ("methodNameForPOST".equals(method.getName())) {
+	                            return method.invoke(target, args);
+	                        }
+	                        break;
+	                    // Add cases for other HTTP methods as needed
+	                    default:
+	                        // Default behavior or handle unsupported HTTP methods
+	                        break;
+	                }
+
+	                // Default behavior: Proceed with original method invocation
+	                return proceed.invoke(target, args);
+	            }
+	        });
+
+	        return proxy;
+	    }
+
+	}
+
+

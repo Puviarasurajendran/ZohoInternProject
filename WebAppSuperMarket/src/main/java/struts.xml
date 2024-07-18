@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="default" namespace="/supermarket"
+		extends="json-default">
+		<action name="getAllCustomers" class=""
+			method="getAllCustomers">
+			<result type="json">
+				<param name="root">customers</param>
+			</result>
+		</action>
+
+		<action name="getCustomer" class=""
+			method="getCustomerById">
+			<result type="json">
+				<param name="root">customer</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">actionErrors</param>
+			</result>
+		</action>
+
+		<action name="createCustomer" class=""
+			method="createCustomer">
+		    <interceptor-ref name="json" >
+		         <param  name="root">customer</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="json">
+            <param name="root">customer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">actionErrors</param>
+            </result>
+		</action>
+
+	</package>
+
+
+</struts>    

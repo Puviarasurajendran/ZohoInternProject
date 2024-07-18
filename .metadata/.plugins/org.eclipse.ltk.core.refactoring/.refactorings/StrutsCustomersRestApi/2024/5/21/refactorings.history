@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;model&apos; to &apos;restmodel&apos;&#x0A;- Original project: &apos;StrutsCustomersRestApi&apos;&#x0A;- Original element: &apos;StrutsCustomersRestApi/src/main/java/model&apos;&#x0A;- Renamed element: &apos;StrutsCustomersRestApi/src/main/java/restmodel&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;model&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;model" name="restmodel" qualified="false" references="true" stamp="1716526185498" textual="false" version="1.0"/>
+</session>

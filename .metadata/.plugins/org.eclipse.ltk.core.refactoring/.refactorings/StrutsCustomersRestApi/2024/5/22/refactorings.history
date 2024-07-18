@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;proxy.RestApiVersionHandler.java&apos; to &apos;CustomersProxyHandler.java&apos;&#x0A;- Original project: &apos;StrutsCustomersRestApi&apos;&#x0A;- Original element: &apos;proxy.RestApiVersionHandler.java&apos;&#x0A;- Renamed element: &apos;proxy.CustomersProxyHandler.java&apos;" description="Rename compilation unit &apos;RestApiVersionHandler.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;proxy{RestApiVersionHandler.java" name="CustomersProxyHandler.java" references="false" stamp="1716787664434" version="1.0"/>
+</session>

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    image: springimage:latest
+    ports:
+      - "9090:8080"
+    container_name: web
+    volumes:
+    - logs:/usr/local/tomcat/logs/
+    links:
+      - "database:customer"
+
+  database:
+    image: mysql:latest
+    ports:
+      - "3307:3306" 
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: kjh900408
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+  logs:

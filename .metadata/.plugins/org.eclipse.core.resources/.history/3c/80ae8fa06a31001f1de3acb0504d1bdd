@@ -1,0 +1,5 @@
+package restdao;
+
+public class CustomersDAOVersion2 {
+
+}
